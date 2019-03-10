@@ -10,7 +10,7 @@
 #define MAX_LINE 1024
 
 /*
-GetTime 128.138.141.172 13
+test sample: GetTime 128.138.141.172 13
 */
 int main(int argc, char **argv)
 {
