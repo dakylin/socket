@@ -10,7 +10,8 @@
 #define MAX_LINE 1024
 
 /*
-test sample: GetTime 128.138.141.172 13
+test sample: This IP and port works well
+GetTime 128.138.141.172 13
 */
 int main(int argc, char **argv)
 {
