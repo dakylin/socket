@@ -51,8 +51,9 @@ int main(int argc, char **argv)
 		memset(buf, 0, sizeof(buf));
 		int fd = socketcommon::Accept(listenfd, NULL, NULL);
 		{
-			socklen_t len;
+			socklen_t len = sizeof(struct sockaddr);
 			struct sockaddr_in sa;
+			memset(&sa, 0, sizeof(struct sockaddr));
 			if (!getpeername(fd, (struct sockaddr *)&sa, &len))
 			{
 				char sql[1024];
@@ -61,7 +62,7 @@ int main(int argc, char **argv)
 				snprintf(sql, 1024, "client login. ip: %s, port :%d", inet_ntoa(sa.sin_addr), ntohs(sa.sin_port));
 				snprintf(machine_ip, 17, "%s", inet_ntoa(sa.sin_addr));
 				//mylog(sql);
-				fprintf(stdout, "Conn=[%s].\n", machine_ip);
+				fprintf(stdout, "Conn=[%s,%s].\n", machine_ip, sql);
 			}
 		}
 		time_t ti = time(NULL);
