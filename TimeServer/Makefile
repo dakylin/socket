@@ -1,4 +1,4 @@
-MODULE=GetTime
+MODULE=TimeServer
 CROSS = 
 CC = $(CROSS)gcc
 CXX = $(CROSS)g++
@@ -25,8 +25,8 @@ TARGET = $(MODULE).$(VERSION)
 $(TARGET) : $(OBJS)
 	$(CXX) $^ -o $@ $(LIB_PATH) $(LIBS)
 
-$(OBJS):%.o : %.cc
-	$(CXX) $(CFLAGS) $< -o $@ $(HEADER_PATH)
+#$(OBJS):%.o : %.cc
+#	$(CXX) $(CFLAGS) $< -o $@ $(HEADER_PATH)
 copy:
 	cp ../PackFunction/* ./
 clean:

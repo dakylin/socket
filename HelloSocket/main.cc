@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "CommonMethod.h"
+
 #define MAX_LINE 1024
 #define IPV4
 /*
@@ -24,7 +26,8 @@ int main(int argc, char **argv)
 	int sockfd, n;
 	char receiveline[MAX_LINE + 1];
 	struct sockaddr_in serveraddr;
-	if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	//if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	if ((sockfd = socketcommon::Socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		fprintf(stdout, "Socket error!\n");
 		return 1;
